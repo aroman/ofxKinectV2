@@ -131,7 +131,7 @@ void ofxKinectV2::update(){
                 depthPix.allocate(rawDepthPixels.getWidth(), rawDepthPixels.getHeight(), 1);
             }
         
-            float * pixelsF         = rawDepthPixels.getData();
+//            float * pixelsF         = rawDepthPixels.getData();
             unsigned char * pixels  = depthPix.getData();
                 
             for(int i = 0; i < depthPix.size(); i++){
