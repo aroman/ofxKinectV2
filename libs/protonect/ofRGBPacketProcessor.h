@@ -12,6 +12,8 @@
 #include <libfreenect2/rgb_packet_processor.h>
 #include <libfreenect2/frame_listener.hpp>
 
+#include "turbojpeg.h"
+
 namespace libfreenect2{
 
 class ofRGBPacketProcessor : public RgbPacketProcessor{
@@ -25,7 +27,8 @@ class ofRGBPacketProcessor : public RgbPacketProcessor{
     protected:
         void newFrame();
         Frame *frame;
-        ofPixels pix; 
+        ofPixels pix;
+        tjhandle handleDecompress;
 
 };
 
