@@ -5,6 +5,15 @@ meta:
 	ADDON_TAGS = "kinect" "kinectv2" "libfreenect" "libfreenect2"
 	ADDON_URL = https://github.com/ofTheo/ofxKinectV2
 
-osx:
-	
-	ADDON_FRAMEWORKS = OpenCL
+common:
+	ADDON_INCLUDES += libs/libusb/include/libusb
+	ADDON_INCLUDES += libs/turbo-jpeg/include
+	ADDON_INCLUDES += libs/libfreenect2/include
+	ADDON_INCLUDES += libs/libfreenect2/include/internal
+	ADDON_INCLUDES += libs/libfreenect2/include/internal/libfreenect2/usb
+	ADDON_INCLUDES += libs/protonect
+	ADDON_INCLUDES += libs/turbo-jpeg/include
+	ADDON_INCLUDES += src
+
+# osx:
+# 	ADDON_FRAMEWORKS = OpenCL

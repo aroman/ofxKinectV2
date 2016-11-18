@@ -21,7 +21,7 @@ class ofRGBPacketProcessor : public RgbPacketProcessor{
     public:
         ofRGBPacketProcessor();
         ~ofRGBPacketProcessor();
-    
+
          void process(const libfreenect2::RgbPacket &packet);
 
     protected:
