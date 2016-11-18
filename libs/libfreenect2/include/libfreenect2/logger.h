@@ -41,9 +41,8 @@ class  Logger
 {
 public:
   /** Available levels of logging, higher is more output. */
-  enum Level
-  {
-    None = 0,
+  enum Level {
+    Nada = 0,
     Error = 1,
     Warning = 2,
     Info = 3,

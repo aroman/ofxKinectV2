@@ -15,5 +15,3 @@ common:
 	ADDON_INCLUDES += libs/turbo-jpeg/include
 	ADDON_INCLUDES += src
 
-# osx:
-# 	ADDON_FRAMEWORKS = OpenCL
