@@ -19,6 +19,9 @@ ofxKinectV2::ofxKinectV2(){
     
     params.add(minDistance.set("minDistance", 500, 0, 12000));
     params.add(maxDistance.set("maxDistance", 6000, 0, 12000));
+
+    freenect2 = protonect.freenect2;
+    registration = protonect.registration;
 }
 
 //--------------------------------------------------------------------------------
@@ -103,6 +106,7 @@ void ofxKinectV2::threadedFunction(){
 
     while(isThreadRunning()){
         protonect.updateKinect(rgbPixelsBack, depthPixelsBack);
+        protonect.updateKinect(rgbFrame, depthFrame);
         rgbPixelsFront.swap(rgbPixelsBack);
         depthPixelsFront.swap(depthPixelsBack);
                 
@@ -159,6 +163,11 @@ ofPixels ofxKinectV2::getDepthPixels(){
 }
 
 //--------------------------------------------------------------------------------
+void* ofxKinectV2::getDepthFrame(){
+    return (void*)depthFrame; 
+}
+
+//--------------------------------------------------------------------------------
 ofFloatPixels ofxKinectV2::getRawDepthPixels(){
     return rawDepthPixels;
 }
@@ -166,6 +175,11 @@ ofFloatPixels ofxKinectV2::getRawDepthPixels(){
 //--------------------------------------------------------------------------------
 ofPixels ofxKinectV2::getRgbPixels(){
     return rgbPix; 
+}
+
+//--------------------------------------------------------------------------------
+void* ofxKinectV2::getRgbFrame(){
+    return (void*)rgbFrame; 
 }
 
 //--------------------------------------------------------------------------------

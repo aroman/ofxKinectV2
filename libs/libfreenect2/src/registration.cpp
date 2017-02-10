@@ -92,6 +92,13 @@ void Registration::apply( int dx, int dy, float dz, float& cx, float &cy) const
   cx = rx * color.fx + color.cx;
 }
 
+/*
+static void Registration::apply(const Frame *rgb, const Frame *depth, Frame *undistorted, Frame *registered, const bool enable_filter, Frame *bigdepth) const
+{
+  apply(rgb, depth, undistorted, registered, enable_filter, bigdepth);
+}
+*/
+
 /**
  * Map color pixels onto depth data, giving an \a registered output image.
  * Optionally, the inverse map can also be obtained through \a bigdepth.

@@ -27,24 +27,28 @@ class ofProtonect{
     
         int openKinect(std::string serialNo);
         void updateKinect(ofPixels & rgbPixels, ofFloatPixels & depthPixels);
+        void updateKinect(libfreenect2::Frame *rgb,libfreenect2::Frame *depth);
         int closeKinect();
     
         libfreenect2::Freenect2 & getFreenect2Instance(){
             return freenect2;
         }
   
+        libfreenect2::Freenect2 freenect2;
+        libfreenect2::Registration* registration;
+
     protected:
   
         bool bOpened;
         
-        libfreenect2::Freenect2 freenect2;
+        
 
         libfreenect2::Freenect2Device *dev = 0;
         libfreenect2::PacketPipeline *pipeline = 0;
 
         libfreenect2::FrameMap frames;
 
-        libfreenect2::Registration* registration;
+        
         libfreenect2::SyncMultiFrameListener * listener;
         libfreenect2::Frame  * undistorted = NULL;
         libfreenect2::Frame  * registered = NULL;

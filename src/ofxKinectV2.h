@@ -15,6 +15,9 @@ class ofxKinectV2 : public ofThread{
 
     public:
     
+        libfreenect2::Freenect2 freenect2;
+        libfreenect2::Registration* registration;
+
         struct KinectDeviceInfo{
             string serial;
             int deviceId;   //if you have the same devices plugged in device 0 will always be the same Kinect
@@ -36,7 +39,9 @@ class ofxKinectV2 : public ofThread{
         bool isFrameNew();
     
         ofPixels getDepthPixels();
+        void* getDepthFrame();
         ofPixels getRgbPixels();
+        void* getRgbFrame();
         ofFloatPixels getRawDepthPixels();
     
         ofParameterGroup params;
@@ -54,10 +59,14 @@ class ofxKinectV2 : public ofThread{
         bool bNewFrame;
         bool bOpened;
     
-        ofProtonect protonect; 
+        ofProtonect protonect;
     
         ofPixels rgbPixelsBack;
         ofPixels rgbPixelsFront;
+        libfreenect2::Frame *rgbFrame;
+        libfreenect2::Frame *depthFrame;
+
+
         ofFloatPixels depthPixelsBack;
         ofFloatPixels depthPixelsFront;
         int lastFrameNo; 

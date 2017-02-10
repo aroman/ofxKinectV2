@@ -102,6 +102,18 @@ void ofProtonect::updateKinect(ofPixels & rgbPixels, ofFloatPixels & depthPixels
     }
 }
 
+void ofProtonect::updateKinect(libfreenect2::Frame *rgb, libfreenect2::Frame *depth){
+  
+    if(bOpened){
+        listener->waitForNewFrame(frames);
+        rgb = frames[libfreenect2::Frame::Color];
+        //libfreenect2::Frame *ir = frames[libfreenect2::Frame::Ir];
+        depth = frames[libfreenect2::Frame::Depth];
+
+        listener->release(frames);
+    }
+}
+
 int ofProtonect::closeKinect(){
 
   if(bOpened){
